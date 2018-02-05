@@ -4,22 +4,22 @@ import sys
 import cgi
 import cgitb; cgitb.enable()  # for troubleshooting
 
-print("Content-type: text/html")
-print
+sys.path.insert(0, '/home/root/brain-fs/www/common')
+import brain
 
+
+brain.www_print_head("Simple Scope", "")
+brain.www_print_title("Simple Scope", "A simple data acquisition app for the POD-ADC-LT226x")
+
+brain.www_start_section()
 print("""
-<html>
-<head><title>SYZYGY ADC Simple Scope Example</title></head>
-<body>
-  <h3>SYZYGY ADC Simple Scope Example</h3>
-
   <ol>
     <li>Make sure the ADC peripheral is on <strong>SYZYGY Port D</strong></li>
-    <li><a href="/simple-scope/setup.py">Setup the simple scope</a></li>
-    <li><a href="/simple-scope/get-waveform.py">Capture an input waveform</a></li>
+    <li><a href="/simple-scope/setup.py">Configure the simple scope bitfile</a></li>
+    <li><a href="/simple-scope/acquire.py">Acquire an input waveform</a></li>
   </ol>
-
-</body>
-</html>
 """)
+brain.www_end_section()
+
+brain.www_print_foot()
 

@@ -4,26 +4,24 @@ import sys
 import cgi
 import cgitb; cgitb.enable()  # for troubleshooting
 
-print("Content-type: text/html")
-print
+sys.path.insert(0, '/home/root/brain-fs/www/common')
+import brain
 
-print("""
-<html>
-<head><title>SYZYGY Camera Example</title></head>
-<body>
-  <h3>SYZYGY Camera Example</h3>
-""")
-
-print("<p>Configuring the FPGA...</p>")
-sys.stdout.flush
 
 from subprocess import call
 call("cat /home/root/brain-fs/camera/syzygy_hub_camera.bit > /dev/xdevcfg", shell=True)
 call("/home/root/brain-fs/camera/software/camera_regs.sh", shell=True)
 
+
+brain.www_print_head("Camera Example", "")
+brain.www_print_title("Camera Example", "Image capture example for the POD-CAMERA")
+
+brain.www_start_section()
 print("""
-  <p>FPGA has been reconfigured with the camera configuration.</p>
-</body>
-</html>
+  <p>FPGA has been configured with the camera example configuration.</p>
+  <p><a href="/camera/">&larr; Go back to the camera example index</a></p>
 """)
+brain.www_end_section()
+
+brain.www_print_foot()
 

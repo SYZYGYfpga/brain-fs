@@ -2,28 +2,25 @@
 
 import sys
 import cgi
-import cgitb; cgitb.enable()  # for troubleshooting
+import cgitb; cgitb.enable();
 
-print("Content-type: text/html")
-print
+sys.path.insert(0, '/home/root/brain-fs/www/common')
+import brain
 
-print("""
-<html>
-<head><title>SYZYGY HelloWorld!</title></head>
-<body>
-  <h3>SYZYGY HelloWorld Example</h3>
-""")
 
-print("<p>Configuring the FPGA...</p>")
-sys.stdout.flush
-
+# Configure the FPGA
 from subprocess import call
-script = "cat /home/root/brain-fs/helloworld/syzygy-helloworld.bit > /dev/xdevcfg";
-call(script, shell=True)
+call("cat /home/root/brain-fs/helloworld/syzygy-helloworld.bit >/dev/xdevcfg", shell=True)
 
+
+brain.www_print_head("Hello World", "")
+brain.www_print_title("Hello World", "A simple starter application to motivate you.")
+
+brain.www_start_section()
 print("""
-  <p>FPGA has been reconfigured with <tt>helloworld.bit</tt></p>
-</body>
-</html>
+Each time you reload this page, the FPGA will be reconfigured with the hello world bitfile.
 """)
+brain.www_end_section()
+
+brain.www_print_foot()
 

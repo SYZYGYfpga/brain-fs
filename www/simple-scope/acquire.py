@@ -6,16 +6,12 @@ import cgi
 import cgitb; cgitb.enable()  # for troubleshooting
 from subprocess import call
 
+sys.path.insert(0, '/home/root/brain-fs/www/common')
+import brain
 
-print("Content-type: text/html")
-print
 
-print("""
-<html>
-<head><title>SYZYGY ADC Simple Scope Example</title></head>
-<body>
-  <h3>SYZYGY ADC Simple Scope Example</h3>
-""")
+brain.www_print_head("Simple Scope", "")
+brain.www_print_title("Simple Scope", "A simple data acquisition app for the POD-ADC-LT226x")
 
 cwd = os.getcwd()
 try:
@@ -25,7 +21,6 @@ except:
 
 os.chdir("/tmp/simple-scope")
 
-print("<p>Capturing waveform...</p>")
 call("/home/root/brain-fs/adc/software/capture_single >/dev/null", shell=True)
 call("/usr/bin/gnuplot /home/root/brain-fs/www/simple-scope/plot_capture.gp", shell=True)
 
@@ -35,9 +30,13 @@ try:
 except:
     os.symlink("/tmp/simple-scope/output.png", cwd + "/output.png")
 
+brain.www_start_section()
 print("""
+  <a href="/simple-scope/acquire.py" class="button button-sm button-secondary">Acquire</a><br />
+  <a href="/simple-scope/">&larr; Go back to the simple scope index</a>
   <img src="output.png" width="1000">
-</body>
-</html>
 """)
+brain.www_end_section()
+
+brain.www_print_foot()
 
