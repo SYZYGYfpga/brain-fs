@@ -33,8 +33,8 @@ print("""
         <div class="container text-content">
           <div class="row">
             <div class="col-sm-12 mb-md">
-              <div class="table-responsive" style="width:100%;">
-              <table class="table table-datatable" style="border:2px; width:100%;">
+              <div class="col-sm-12 table-responsive">
+              <table class="table table-datatable">
                 <thead>
                   <tr>
                     <th>Parameter</th>
