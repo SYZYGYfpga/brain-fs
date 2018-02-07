@@ -66,7 +66,7 @@ else:
 if svio_vio[1] == 0:
   print('<td colspan="3" style="text-align:center;">Disabled</td>')
 else:
-  print('<td colspan="3" style="text-align:center;">' + ("%.1f" % (svio_vio[0] / 100)) + '</td>')
+  print('<td colspan="3" style="text-align:center;">' + ("%.1f" % (svio_vio[1] / 100)) + '</td>')
 
 print("</tr>")
 
