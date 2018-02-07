@@ -56,6 +56,20 @@ for i in range(0,5):
       print("<td>-</td>")
   print("</tr>")
 
+print("<tr>")
+print("<th>SmartVIO</th>")
+if svio_vio[0] == 0:
+  print('<td colspan="1">Disabled</td>')
+else:
+  print('<td colspan="1">' + ("%.1f" % (svio_vio[0] / 100)) + '</td>')
+
+if svio_vio[1] == 0:
+  print('<td colspan="3" style="text-align:center;">Disabled</td>')
+else:
+  print('<td colspan="3" style="text-align:center;">' + ("%.1f" % (svio_vio[0] / 100)) + '</td>')
+
+print("</tr>")
+
 print("""
                 </tbody>
               </table>
