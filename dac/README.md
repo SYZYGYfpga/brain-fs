@@ -11,28 +11,6 @@ of approximately 15 kHz. The I output of the DAC can be configured to output
 an arbitrary waveform by programming its waveform memory from the PS of the 
 Zynq through the software found in the software directory.
 
-## Simulation
-
-A simple simulation of the design can be performed using the syzygy-dac-tb.v.
-Note that this is not intended as a full simulation and verification suite, the
-user must confirm that the data output from the simulation matches the expected
-values. This simulation is provided as-is and its accuracy is not guaranteed.
-
-## Building
-
-To build this design, start a new Vivado project with the xc7z012s part
-selected and add the sources in the HDL folder to the project. The
-"design\_1.bd" file can be added as an IP. A wrapper for the block design
-must be generated before the project can be built. This can be accomplished
-by right clicking on the block design in the "Design Sources" view and
-selecting the "Generate HDL Wrapper" option.
-
-With the project created and sources added, simply click the "Generate
-Bitstream" button in the Vivado Flow Navigator to build a bitstream.
-The result can be found in the Vivado project folder under:
-
-`(project name).runs/impl\_1/(project name).bit`
-
 ## Software
 
 Software for the Zynq PS portion of the design is included in the software
