@@ -2,9 +2,9 @@
 
 ## Overview
 
-This sample project is designed to demonstrate usage of the POD-ADC-LTC2264-12
-SYZYGY module from Opal Kelly. This sample is designed to interface with the
-pod connected to PORT D on the Brain-1.
+This sample project is designed to demonstrate usage of the POD-ADC-LTC2264-12 
+or POD-ADC-LTC2268-14 SYZYGY module from Opal Kelly. This sample is designed 
+to interface with the pod connected to PORT D on the Brain-1.
 
 Both analog inputs on the ADC are deserialized by logic in the PL portion
 of the Zynq and fed into PS memory by a DMA transfer.
