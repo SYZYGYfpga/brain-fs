@@ -17,7 +17,7 @@ implements a simplified version of the design described by Xilinx.
 By default, the simple scope example design uses the `syzygy_hub_adc.bit` file,
 which is targeted for the SZG-LTC2264-12. You can either rename the
 `syzygy_hub_adc_14.bit` file, which is targeted for the SZG-ADC-LTC2268-14, or
-change [this line](https://github.com/SYZYGYfpga/brain-fs/blob/master/www/simple-scope/setup.py#L12) to the file name of the bitfile desired.
+rename the bit filename in [simple-scope setup.py](https://github.com/SYZYGYfpga/brain-fs/blob/master/www/simple-scope/setup.py#L12).
 
 ## Software
 
